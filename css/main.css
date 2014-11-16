@@ -1,0 +1,25 @@
+body {
+	width: 480px;
+	margin: auto;
+	margin-top: 20px;
+} 
+
+#canvas {
+	display: block;
+}
+
+#controls {
+	width: 480px;
+	height: 50px;
+	background-color: lightgray;
+	color: gray;
+	text-align: center;
+}
+
+#text {
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 5px;
+	margin: 0px;
+}
