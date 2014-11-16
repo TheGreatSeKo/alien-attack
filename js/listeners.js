@@ -20,11 +20,14 @@ window.addEventListener("keyup", function(e) {
 });
 
 window.addEventListener("keypress", function(e) {
-	if (e.keyCode === 32 && !bulletObject.shot) {
-		bulletObject.shot = true;
-		var shot = Object.create(bulletObject);
-		shot.x = Math.floor(player.x + (player.width / 2));
-		shot.y = player.y;
-		bullets.push(shot);
+	if (Date.now() - bulletObject.lastShot > 250) { // 250 - fire rate
+		if (e.keyCode === 32 && !bulletObject.shot) {
+			bulletObject.shot = true;
+			var shot = Object.create(bulletObject);
+			shot.x = Math.floor(player.x + (player.width / 2));
+			shot.y = player.y;
+			bullets.push(shot);
+		}
+		bulletObject.lastShot = Date.now();
 	}
 });
