@@ -1,13 +1,18 @@
 function render() {
 
-	//aliens render
 	context.clearRect(0, 0, canvas.width, canvas.height);
+	frame += 1;
+	if (frame === 60) frame = 0;
+	//aliens render
 	for (var i = 0, max = aliens.length; i < max; i++) {
-			context.drawImage(
-				alienObject.image,
-				aliens[i].width * aliens[i].status, 0, alienObject.width, alienObject.height,
-				aliens[i].x, aliens[i].y, aliens[i].width, aliens[i].height			
-			);
+		if (aliens[i].status != 2)	{
+			(frame > 30) ? aliens[i].status = 1 : aliens[i].status = 0;
+		}
+		context.drawImage(
+			alienObject.image,
+			aliens[i].width * aliens[i].status, 0, alienObject.width, alienObject.height,
+			aliens[i].x, aliens[i].y, aliens[i].width, aliens[i].height			
+		);
 	}
 
 	//player render
