@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 var frame = 0; // to count framerate
-
+var endGame = false;
 //"aliensGrid" arr using for more easy manipulation with graphicks of aliens
 //(if we want different type of aliens on differend row/columns, or changing pattern of alliens grid)
 var aliensGrid = [];

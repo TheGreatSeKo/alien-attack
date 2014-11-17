@@ -13,6 +13,7 @@
 
 
 	//update aliens coordinates
+	if (aliens.length === 0) endGame = true;
 	// //change aliens speed when less of them remain
 	// if (alienObject.amount < aliens.length) {
 	// 	var inc = Math.round((alienObject.amount - aliens.length) / 10);		
@@ -23,6 +24,7 @@
 
 		aliens[i].x += aliens[i].vx;
 		aliens[i].y += aliens[i].vy;
+		if (aliens[i].y > player.y) endGame = true;
 
 		maxX = Math.max(maxX, aliens[i].x);
 		minX = Math.min(minX, aliens[i].x);
@@ -62,8 +64,9 @@
 
 	//destroy alien that was hit
 	for (var i = aliens.length - 1; i >= 0; i--) {
-		if (aliens[i].hit && aliens[i].status != 2) {
+		if (aliens[i].hit) {
 				aliens[i].status = 2;
+				aliens[i].hit = false;
 				(function destroyAlien(i) {
 					setTimeout(function() {aliens.splice(i, 1); }, 50);
 				})(i);
@@ -71,4 +74,5 @@
 	}
 
 	render();
+
 })();
