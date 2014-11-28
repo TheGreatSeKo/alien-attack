@@ -24,7 +24,7 @@
 
 		aliens[i].x += aliens[i].vx;
 		aliens[i].y += aliens[i].vy;
-		if (aliens[i].y > player.y) endGame = true;
+		if (aliens[i].y + alienObject.height > player.y) endGame = true;
 
 		maxX = Math.max(maxX, aliens[i].x);
 		minX = Math.min(minX, aliens[i].x);

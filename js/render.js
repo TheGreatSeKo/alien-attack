@@ -14,7 +14,7 @@ function render() {
 			context.drawImage(
 				alienObject.image,
 				aliens[i].width * aliens[i].status, 0, alienObject.width, alienObject.height,
-				aliens[i].x, aliens[i].y, aliens[i].width, aliens[i].height			
+				aliens[i].x, aliens[i].y, aliens[i].width, aliens[i].height
 			);
 		}
 
@@ -36,6 +36,11 @@ function render() {
 		//endGame
 		context.fillStyle = "white";
 		context.font = "bold 50px monospace";
-		context.fillText("Game over", 120, canvas.height/2);
+		if (aliens.length != 0) {
+			context.fillText("Game over", 120, canvas.height/2);
+		} else {
+			context.fillText("You win!", 120, canvas.height/2);
+		}
 	}
+
 }
